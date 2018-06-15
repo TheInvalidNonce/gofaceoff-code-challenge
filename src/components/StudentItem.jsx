@@ -5,7 +5,7 @@ const StudentItem = ({ index, firstName }) => {
 
   return (
     <div key={index}>
-      <Link to={`{firstName}`}>
+      <Link to={`/${firstName}`}>
         <h2>{firstName}</h2>
       </Link>
     </div>

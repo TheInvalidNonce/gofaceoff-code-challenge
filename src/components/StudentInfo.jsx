@@ -3,21 +3,19 @@ import StudentMarks from './StudentMarks'
 import { Link } from 'react-router-dom';
 
 const StudentInfo = props => {
-	// debugger
-		 return props.results.map( (marks, index) => {
-			//  debugger
-		 		return <div>
-								<StudentMarks
-									marks={marks.marks}
-									key={index}
-								/>
-								<Link to='/'>
-      						<div className='back'>
-       						 <span>Back</span>
-     					 		</div>
-    						</Link>
-							</div>
-				})
+	const user = props.results.find(user => 
+		user.firstName === props.match.params.firstName)
+		 		return (
+					<div>
+						<h1>{user.firstName}'s Results</h1>
+						<StudentMarks marks={user.marks} />
+						<Link to='/'>
+      				<div className='back'>
+       					<span>Back</span>
+     					</div>
+    				</Link>
+					</div>
+				)
 
 		
 	}
